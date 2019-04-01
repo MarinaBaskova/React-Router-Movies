@@ -15,6 +15,7 @@ export default class MovieList extends Component {
 			.get('http://localhost:5000/api/movies')
 			.then((response) => {
 				this.setState(() => ({ movies: response.data }));
+				console.log(this.state.movies);
 			})
 			.catch((error) => {
 				console.error('Server Error', error);
