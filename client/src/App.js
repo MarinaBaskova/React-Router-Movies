@@ -13,11 +13,10 @@ export default class App extends Component {
 	}
 
 	addToSavedList = (movie) => {
-		const savedList = this.state.savedList;
+		const savedList = this.state.savedList.slice();
 		// savedList.push(movie);
 		// this.setState({ savedList });
 		if (savedList.indexOf(movie) === -1) {
-			console.log('NOT exist');
 			savedList.push(movie);
 			this.setState({ savedList });
 		} else {
