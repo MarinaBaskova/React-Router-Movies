@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
+import './index.css';
 
 export default class App extends Component {
 	constructor() {
@@ -13,9 +14,10 @@ export default class App extends Component {
 	}
 
 	addToSavedList = (movie) => {
-		const savedList = this.state.savedList.slice();
+		//const savedList = this.state.savedList
 		// savedList.push(movie);
 		// this.setState({ savedList });
+		const savedList = this.state.savedList.slice();
 		if (savedList.indexOf(movie) === -1) {
 			savedList.push(movie);
 			this.setState({ savedList });
