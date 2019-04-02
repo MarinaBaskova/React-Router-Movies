@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
@@ -14,8 +14,15 @@ export default class App extends Component {
 
 	addToSavedList = (movie) => {
 		const savedList = this.state.savedList;
-		savedList.push(movie);
-		this.setState({ savedList });
+		// savedList.push(movie);
+		// this.setState({ savedList });
+		if (savedList.indexOf(movie) === -1) {
+			console.log('NOT exist');
+			savedList.push(movie);
+			this.setState({ savedList });
+		} else {
+			console.log('Item was already added');
+		}
 	};
 
 	render() {
