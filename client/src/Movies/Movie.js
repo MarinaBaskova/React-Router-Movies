@@ -11,9 +11,7 @@ export default class Movie extends Component {
 	}
 
 	componentDidMount() {
-		console.log('Test', this.props.match);
-		console.log('MOVIE PROP', this.props);
-
+		// console.log('Test', this.props.match);
 		let id = this.props.match.params.id;
 		// change this line to grab the id passed on the URL
 		// const id = 1;
@@ -31,11 +29,14 @@ export default class Movie extends Component {
 			});
 	};
 	// Uncomment this code when you're ready for the stretch problems
-	// componentWillReceiveProps(newProps){
-	//   if(this.props.match.params.id !== newProps.match.params.id){
-	//     this.fetchMovie(newProps.match.params.id);
-	//   }
-	// }
+	componentWillReceiveProps(newProps) {
+		console.log('COMPwillReciveNEWProp', newProps.match.params.id);
+		console.log('COMPwillReciveOLDProp', this.props.match.params.id);
+
+		if (this.props.match.params.id !== newProps.match.params.id) {
+			this.fetchMovie(newProps.match.params.id);
+		}
+	}
 
 	saveMovie = () => {
 		const addToSavedList = this.props.addToSavedList;
